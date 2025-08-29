@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daftar Produk - CoffeeCat</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    h1, h2 {
+      color: #6f4e37; /* warna coklat kopi */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tombol Checkout -->
+  <a href="checkout.html" class="btn-checkout">Checkout</a>
+
+  <!-- Header Nama Cafe -->
+  <header style="text-align:center; margin: 40px 0;">
+  <h1 style="
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #6f4e37;
+    font-size: 3rem;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  ">
+    CoffeeCat
+  </h1>
+  <p style="font-style: italic; color: #56280a; font-size: 1.2rem;">
+    Nikmati kopi terbaik dengan suasana nyaman
+  </p>
+  <p style="font-style: italic; color: #993d08; font-size: 1rem;">
+    Tempat di mana kopi & kenyamanan bertemu
+  </p>
+  <p style="font-style: italic; color: #d06c3e; font-size: 0.95rem;">
+    Cangkir pertama, senyum pertama.
+  </p>
+  <p style="font-style: italic; color: #de835c; font-size: 0.9rem;">
+    Karena setiap cangkir punya cerita.
+  </p>
+</header>
+
+  <!-- Judul Daftar Produk -->
+  <h2 style="
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      color: #6f4e37;
+      font-size: 1.9rem;
+      letter-spacing: 4px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    ">
+      Ngopi Apa Hari Ini? Yuk pilih!
+    </h2>
+
+  <!-- Daftar produk -->
+  <div class="produk">
+    <h3>Americano Coffee</h3>
+    <img src="img/americano.webp" alt="Americano Coffee" width="150" />
+    <p class="harga">Rp 25.000</p>
+    <button onclick="tambahKeKeranjang(this)">Tambah ke Keranjang</button>
+  </div>
+
+  <div class="produk">
+    <h3>Cappuccino</h3>
+    <img src="img/cappuccino.jpg" alt="Cappuccino" width="150" />
+    <p class="harga">Rp 30.000</p>
+    <button onclick="tambahKeKeranjang(this)">Tambah ke Keranjang</button>
+  </div>
+
+  <div class="produk">
+    <h3>Matcha Latte</h3>
+    <img src="img/matchalatte.jpg" alt="Matcha Latte" width="150" />
+    <p class="harga">Rp 32.000</p>
+    <button onclick="tambahKeKeranjang(this)">Tambah ke Keranjang</button>
+  </div>
+
+  <div class="produk">
+    <h3>Espresso Shot</h3>
+    <img src="img/espresso.png" alt="Espresso Shot" width="150" />
+    <p class="harga">Rp 20.000</p>
+    <button onclick="tambahKeKeranjang(this)">Tambah ke Keranjang</button>
+  </div>
+
+  <div class="produk">
+    <h3>Caramel Macchiato</h3>
+    <img src="img/caramelmacchiato.jpg" alt="Caramel Macchiato" width="150" />
+    <p class="harga">Rp 35.000</p>
+    <button onclick="tambahKeKeranjang(this)">Tambah ke Keranjang</button>
+  </div>
+
+  <div class="produk">
+    <h3>Vanilla Cold Brew</h3>
+    <img src="img/vanillacoldbrew.jpg" alt="Vanilla Cold Brew" width="150" />
+    <p class="harga">Rp 33.000</p>
+    <button onclick="tambahKeKeranjang(this)">Tambah ke Keranjang</button>
+  </div>
+
+  <div class="produk">
+    <h3>Hazelnut Latte</h3>
+    <img src="img/hazelnutlatte.jpg" alt="Hazelnut Latte" width="150" />
+    <p class="harga">Rp 34.000</p>
+    <button onclick="tambahKeKeranjang(this)">Tambah ke Keranjang</button>
+  </div>
+
+  <div class="produk">
+    <h3>Mocha Delight</h3>
+    <img src="img/mochadelight.jpg" alt="Mocha Delight" width="150" />
+    <p class="harga">Rp 36.000</p>
+    <button onclick="tambahKeKeranjang(this)">Tambah ke Keranjang</button>
+  </div>
+
+  <div class="produk">
+    <h3>Affogato Bliss</h3>
+    <img src="img/affogato.jpg" alt="Affogato Bliss" width="150" />
+    <p class="harga">Rp 38.000</p>
+    <button onclick="tambahKeKeranjang(this)">Tambah ke Keranjang</button>
+  </div>
+
+  <div class="produk">
+    <h3>Black Forest Mocha</h3>
+    <img src="img/blackforest.jpg" alt="Black Forest Mocha" width="150" />
+    <p class="harga">Rp 40.000</p>
+    <button onclick="tambahKeKeranjang(this)">Tambah ke Keranjang</button>
+  </div>
+
+  <!-- Keranjang Belanja -->
+  <h2>Keranjang Belanja</h2>
+  <ul id="listKeranjang"></ul>
+  <h3>Total: <span id="totalHarga">Rp 0</span></h3>
+
+  <!-- Script JavaScript -->
+  <script>
+    let keranjang = [];
+
+    window.onload = function () {
+      const data = localStorage.getItem("keranjang");
+      if (data) {
+        keranjang = JSON.parse(data);
+        renderKeranjang();
+      }
+    };
+
+    function tambahKeKeranjang(button) {
+      const produk = button.parentElement;
+      const nama = produk.querySelector("h3").innerText;
+      const harga = parseInt(produk.querySelector(".harga").innerText.replace(/[^0-9]/g, ''));
+
+      keranjang.push({ nama, harga });
+      simpanKeranjang();
+      renderKeranjang();
+    }
+
+    function hapusDariKeranjang(index) {
+      keranjang.splice(index, 1);
+      simpanKeranjang();
+      renderKeranjang();
+    }
+
+    function simpanKeranjang() {
+      localStorage.setItem("keranjang", JSON.stringify(keranjang));
+    }
+
+    function renderKeranjang() {
+      const listKeranjang = document.getElementById("listKeranjang");
+      const totalHargaElem = document.getElementById("totalHarga");
+      listKeranjang.innerHTML = "";
+      let total = 0;
+
+      keranjang.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.textContent = `${item.nama} - Rp ${item.harga.toLocaleString()}`;
+
+        const btnHapus = document.createElement("button");
+        btnHapus.textContent = "Hapus";
+        btnHapus.style.marginLeft = "10px";
+        btnHapus.onclick = () => hapusDariKeranjang(index);
+
+        li.appendChild(btnHapus);
+        listKeranjang.appendChild(li);
+
+        total += item.harga;
+      });
+
+      totalHargaElem.innerText = `Rp ${total.toLocaleString()}`;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+/* Reset dan styling dasar */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Tombol Checkout */
+.btn-checkout {
+  display: block;
+  width: fit-content;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-checkout:hover {
+  background-color: #45a049;
+}
+
+/* Kartu produk */
+.produk {
+  background-color: #fff;
+  padding: 15px;
+  margin: 15px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  max-width: 300px;
+  text-align: center;
+}
+
+.produk img {
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.produk p.harga {
+  font-size: 16px;
+  color: #e91e63;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+/* Tombol Tambah */
+.produk button {
+  padding: 8px 12px;
+  background-color: #2196f3;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.produk button:hover {
+  background-color: #1976d2;
+}
+
+/* Keranjang */
+#listKeranjang {
+  list-style: none;
+  padding: 0;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+#listKeranjang li {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#listKeranjang li button {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#listKeranjang li button:hover {
+  background-color: #d32f2f;
+}
+
+/* Total */
+h3 span#totalHarga, span#totalCheckout {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+/* Checkout container */
+#checkoutContainer {
+  max-width: 600px;
+  margin: auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Tombol Bayar */
+button[onclick="bayar()"] {
+  background-color: #ff9800;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+button[onclick="bayar()"]:hover {
+  background-color: #fb8c00;
+}
+
+/* Responsif */
+@media (min-width: 600px) {
+  .produk {
+    display: inline-block;
+    margin: 15px;
+    vertical-align: top;
+  }
+}
